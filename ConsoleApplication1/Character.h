@@ -31,5 +31,6 @@ public:
 	void ShowCharStats() const;
 
 	friend class SystemManager;
+	friend class BattleManager;
 };
 

@@ -59,15 +59,5 @@ void Character::ShowCharStats() const {
 	cout << "소지금 : " << this->iGold << "G" << endl;
 	cout << "힘 : " << this->iStr << endl << "민첩 : " << this->iDex << endl << "지능 : " << this->iInt << endl;
 	cout << "---------------------------------" << endl;
-	cout << "1. 장비창 보기" << endl << "2. 돌아가기" << endl;
-
-	int iChoice = 0;
-
-	while (iChoice != 1 && iChoice != 2) {
-		cout << endl << "선택하세요 : "; cin >> iChoice;
-	}
-
-	//if (iChoice == 1) /*Character::ShowEquipment()*/;
-
 	return;
 }

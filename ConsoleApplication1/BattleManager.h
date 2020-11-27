@@ -10,7 +10,6 @@ using namespace std;
 class BattleManager
 {
 private:
-	vector<string> sBattleField = { "µﬁªÍ", "µÈ∆«", "Ω£" };
 
 public:
 	void ShowBattleFields() const;

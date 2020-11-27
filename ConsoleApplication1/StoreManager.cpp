@@ -4,7 +4,7 @@
 
 enum SMChoice { SM_ZERO, SM_BUY, SM_RESET, SM_UPGRADE, SM_QUIT };
 
-void StoreManager::StoreMenu()
+void StoreManager::StoreMenu() const
 {
 	while (true)
 	{
@@ -20,8 +20,13 @@ void StoreManager::StoreMenu()
 		cout << "-------------------------------------------------" << endl;
 		cout << "행동을 선택하세요 : " << endl;
 
-
 		cin >> iChoice;
+
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(1024, '\n');
+			continue;
+		}
 
 		switch (iChoice) {
 
