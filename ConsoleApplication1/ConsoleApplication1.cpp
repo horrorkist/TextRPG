@@ -22,8 +22,10 @@ Character cPlayer;
 
 int main()
 {
+
 	cPlayer.CreateNewChar();
 	Manager.ShowMainMenu();
+
 
 	return 0;
 }

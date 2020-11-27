@@ -6,10 +6,12 @@ extern Character cPlayer;
 enum ACTChoice {ACT_ZERO, ACT_ATTACK, ACT_POTION, ACT_RUN };
 
 void BattleManager::Battle(int field) {
-	//파라미터로 사냥터를 받아오고, 랜덤으로 사냥터에 속하는 몬스터를 정한다.
+ //파라미터로 사냥터를 받아오고, 랜덤으로 사냥터에 속하는 몬스터를 정한다.
 
 	//정한 몬스터를 생성한다.
-	Monster enemy;
+
+	//Monster enemy = BF[field][index];
+
 	//몬스터나 플레이어 중 하나가 죽을 때 까지
 
 	while (!cPlayer.isDead && !enemy.isDead) {

@@ -1,7 +1,6 @@
 #include "Monster.h"
-//병합 체크
-//병합 체크 2
-//Babamvirus 주석 초기화
+
+
 void Monster::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	cout << "상대 : " << this->sName << endl;
