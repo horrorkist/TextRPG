@@ -1,9 +1,12 @@
 #include "SystemManager.h"
+#include "Monster.h"
+#include <vector>
 //#include "ConsoleApplication1.cpp"
 
 using namespace std;
 
 extern Character cPlayer;
+extern vector<vector<Monster>> BF;
 
 void SystemManager::ShowMainMenu() const {
 
@@ -34,6 +37,9 @@ void SystemManager::ShowMainMenu() const {
 		case MM_INN:
 			break;
 		case MM_STATS:
+			for (int i = 0; i < BF.size(); i++) {
+				for (int j = 0; j < BF[i].size(); j++) BF[i][j].ShowCharStats();
+			}
 			cPlayer.ShowCharStats();
 			break;
 		case MM_SAVE:
