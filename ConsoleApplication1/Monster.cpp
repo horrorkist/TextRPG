@@ -1,5 +1,6 @@
 #include "Monster.h"
 //병합 체크
+//병합 체크 2
 //Babamvirus 주석 한 줄 추가
 void Monster::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
