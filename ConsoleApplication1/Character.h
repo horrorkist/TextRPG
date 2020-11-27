@@ -6,7 +6,7 @@ using namespace std;
 
 class Character
 {
-public:
+protected:
 
 	string	sName;
 	int		iMaxHp;
@@ -16,8 +16,6 @@ public:
 	int		iDef;
 	int		iGold;
 	int		iExp;
-
-private:
 
 	int		iMaxMp;
 	int		iMp;
