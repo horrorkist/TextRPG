@@ -14,13 +14,13 @@ public:
 	int		iMaxAtt;
 	int		iMinAtt;
 	int		iDef;
+	int		iGold;
+	int		iExp;
 
 private:
 
 	int		iMaxMp;
 	int		iMp;
-	int		iGold;
-	int		iExp;
 	int		iLevel;
 	int		iRqExp;
 	int		iDodge;
