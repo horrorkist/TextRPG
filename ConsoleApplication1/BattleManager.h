@@ -3,6 +3,8 @@
 #include <vector>
 #include <string.h>
 
+
+
 using namespace std;
 
 class BattleManager
@@ -12,6 +14,6 @@ private:
 
 public:
 	void ShowBattleFields() const;
-	void Battle();
+	void Battle(int field);
 };
 

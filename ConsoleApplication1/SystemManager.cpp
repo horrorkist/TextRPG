@@ -1,13 +1,18 @@
 #include "SystemManager.h"
+#include "BattleManager.h"
 //#include "ConsoleApplication1.cpp"
 
 using namespace std;
+
+
+BattleManager bm; //전투 매니저 생성
 
 extern Character cPlayer;
 
 void SystemManager::ShowMainMenu() const {
 
 	enum MMChoice {MM_ZERO, MM_BATTLE, MM_STORE, MM_INN, MM_STATS, MM_SAVE, MM_LOAD, MM_QUIT};
+	enum BFChoice { BF_ZERO, BF_MOUNTAIN, BF_FIELD, BF_FOREST, BF_QUIT };
 
 	while (true) {
 		system("cls");
@@ -28,6 +33,21 @@ void SystemManager::ShowMainMenu() const {
 
 		switch (iChoice) {
 		case MM_BATTLE:
+			system("cls");
+			cout << "-------------------------------------------------" << endl;
+			cout << "1. 뒷산" << endl;
+			cout << "2. 들판" << endl;
+			cout << "3. 깊은 숲" << endl;
+			cout << "4. 돌아가기" << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "행동을 선택하세요 : " << endl;
+
+			cin >> iChoice;
+
+			if (iChoice == BF_QUIT) break;
+
+			bm.Battle(iChoice);
+			
 			break;
 		case MM_STORE:
 			break;
