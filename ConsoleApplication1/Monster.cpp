@@ -1,5 +1,5 @@
 #include "Monster.h"
-
+//병합 체크
 void Monster::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	cout << "상대 : " << this->sName << endl;
