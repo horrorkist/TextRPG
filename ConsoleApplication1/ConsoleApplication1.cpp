@@ -9,6 +9,7 @@ Character cPlayer;
 
 int main()
 {
+	cout << "Hello wordls";
 	cPlayer.CreateNewChar();
 	Manager.ShowMainMenu();
 
