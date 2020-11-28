@@ -9,6 +9,10 @@ extern vector<vector<Monster>> BattleFields;
 enum ACTChoice {ACT_ZERO, ACT_ATTACK, ACT_ITEM, ACT_RUN };
 
 void BattleManager::Battle(int field) {
+
+	string dealt = "";
+	string hit = "";
+
 	srand((unsigned int)time(NULL));
 
  //파라미터로 사냥터를 받아오고, 랜덤으로 사냥터에 속하는 몬스터를 정한다.
@@ -65,6 +69,8 @@ void BattleManager::Battle(int field) {
 			return;
 		}
 
+		cout << dealt;
+		cout << hit;
 		cout << endl << "1. 공격  2. 아이템  3. 도망친다." << endl;
 		cout << "행동을 선택하세요 : ";
 
@@ -83,13 +89,14 @@ void BattleManager::Battle(int field) {
 			int iHurt = (mEnemy.iMinAtt + (rand() % (mEnemy.iMaxAtt - mEnemy.iMinAtt))) - cPlayer.iDef; if (iHurt < 0) iHurt = 0;
 
 			mEnemy.iHp -= iDealt;
-			//cout << mEnemy.sName << "에게 대미지를 " << iDealt << " 가했습니다!" << endl;
+			dealt = mEnemy.sName + "에게 데미지를 " + to_string(iDealt) + " 가했습니다!\n";
 			if (mEnemy.iHp <= 0) {
 				mEnemy.iHp = 0;
 				isBattleEnded = true;
 				break;
 			}
 			cPlayer.iHp -= iHurt;
+			hit = mEnemy.sName + "에게서 데미지를 " + to_string(iHurt) + " 받았습니다!\n";
 			//cout << mEnemy.sName << "가 대미지를 " << iHurt << " 가했습니다!" << endl;
 			if (cPlayer.iHp <= 0) {
 				cPlayer.iHp = 0;
