@@ -39,6 +39,8 @@ Monster Slime("슬라임", 15, 5, 1, 30, 10, 100);
 //Item(string name, int type, int rarity, int minAtt, int maxAtt, int def, int str, int dex, int intel, int maxHp, int maxMp)
 //매개변수 (이름, 종류, 희귀도, 민댐, 맥댐, 방어, 힘, 민, 지, 최대 체력, 최대 마력)
 
+Item None("", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
 //무기
 Item LongSword("롱 소드", 1, 1, 5, 10, 0, 0, 0, 0, 0, 0);
 Item Pickaxe("곡괭이", 1, 2, 10, 25, 0, 0, 0, 0, 0, 0);
@@ -47,25 +49,25 @@ Item InfinityEdge("무한의 대검", 1, 4, 100, 200, 10, 0, 0, 0, 0, 0);
 Item DawnBlade("드락사르의 황혼검", 1, 5, 150, 300, 0, 0, 0, 0, 0, 0);
 
 //투구
-Item IronHelm;
-Item GoldHelm;
-Item SilverHelm;
-Item WoodenHelm;
-Item Tiara;
+Item WoodenHelm("나무 투구", 2, 1, 0, 0, 5, 0, 0, 0, 0, 0);
+Item IronHelm("철 투구", 2, 2, 0, 0, 10, 0, 0, 0, 100, 50);
+Item SilverHelm("은 투구", 2, 3, 0, 0, 25, 0, 0, 0, 600, 400);
+Item GoldHelm("황금 투구", 2, 4, 0, 0, 50, 0, 0, 0, 1000, 500);
+Item Tiara("티아라", 2, 5, 0, 0, 100, 0, 0, 0, 2500, 1000);
 
 //갑옷
-Item ClothArmour;
-Item LeatherArmour;
-Item Maille;
-Item PlateArmour;
-Item MagePlate;
+Item ClothArmour("천 갑옷", 3, 1, 0, 0, 15, 0, 0, 0, 300, 100);
+Item LeatherArmour("가죽 갑옷", 3, 2, 0, 0, 50, 0, 0, 0, 500, 300);
+Item Maille("사슬 갑옷", 3, 3, 0, 0, 70, 0, 0, 0, 1000, 500);
+Item PlateArmour("판금 갑옷", 3, 4, 0, 0, 100, 0, 0, 0, 2000, 500);
+Item MagePlate("메이지 플레이트", 3, 5, 0, 0, 300, 0, 0, 0, 5000, 1000);
 
 //방패
-Item WoodenShield;
-Item IronShield;
-Item GoddessShield;
-Item ShildofPurification;
-Item DragonShield;
+Item WoodenShield("나무 방패", 4, 1, 0, 0, 10, 0, 0, 0, 0, 0);
+Item IronShield("철 방패", 4, 2, 0, 0, 30, 0, 0, 0, 200, 100);
+Item ShildofPurification("정화의 방패", 4, 3, 0, 0, 50, 0, 0, 0, 600, 300);
+Item GoddessShield("여신의 방패", 3, 4, 0, 0, 100, 0, 0, 0, 1000, 500);
+Item DragonShield("용의 방패", 4, 5, 0, 0, 300, 0, 0, 0, 3000, 1000);
 
 //장갑
 Item Vambrace;
