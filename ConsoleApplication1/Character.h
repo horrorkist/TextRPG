@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Item.h"
 
 using namespace std;
 
@@ -26,11 +27,15 @@ protected:
 	int		iDex;
 	int		iInt;
 
+	Item Equipment[6];
+
 public:
+
 	void CreateNewChar();
 	void ShowCharStats() const;
 
 	friend class SystemManager;
 	friend class BattleManager;
+	friend class Item;
 };
 

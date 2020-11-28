@@ -62,5 +62,3 @@ void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	return;
 }
-
-Character NPC;
