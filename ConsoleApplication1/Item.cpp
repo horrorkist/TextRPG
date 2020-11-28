@@ -1,5 +1,20 @@
-#include "Item.h"
+#include "Character.h"
 
+Item::Item(void) {
+	strName = "";
+
+	iType = 0; // 0 : NONE, 1 : ¹«±â, 2 : Åõ±¸, 3 : °©¿Ê, 4: ¹æÆÐ, 5 : Àå°©, 6 : ½Å¹ß
+	iRarity = 0; // 0 : NONE, 1 : ÀÏ¹Ý, 2 : ¸¶¹ý, 4 : Èñ±Í, 5 : ·¹¾î, 6 : À¯´ÏÅ©
+
+	this->iItemMaxAtt = 0;
+	this->iItemMinAtt = 0;
+	this->iItemDef = 0;
+	this->iItemStr = 0;
+	this->iItemDex = 0;
+	this->iItemInt = 0;
+	this->iItemMaxHp = 0;
+	this->iItemMaxMp = 0;
+}
 
 void Item::Equip(Character player) {
 
