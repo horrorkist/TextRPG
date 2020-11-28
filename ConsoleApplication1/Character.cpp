@@ -51,15 +51,15 @@ void Character::CreateNewChar() {
 
 void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
-	cout << "�̸� : " << this->sName << endl;
-	cout << "���� : " << this->iLevel << endl;
+	cout << "이름 : " << this->sName << endl;
+	cout << "레벨 : " << this->iLevel << endl;
 	cout << "HP : " << this->iHp << " / " << this->iMaxHp << endl;
 	cout << "MP : " << this->iMp << " / " << this->iMaxMp << endl;
-	cout << "���ݷ� : " << this->iMinAtt << " - " << this->iMaxAtt << endl;
-	cout << "���� : " << this->iDef << endl;
-	cout << "����ġ : " << this->iExp << " / " << this->iRqExp << endl;
-	cout << "������ : " << this->iGold << "G" << endl;
-	cout << "�� : " << this->iStr << endl << "��ø : " << this->iDex << endl << "���� : " << this->iInt << endl;
+	cout << "공격력 : " << this->iMinAtt << " - " << this->iMaxAtt << endl;
+	cout << "방어력 : " << this->iDef << endl;
+	cout << "경험치 : " << this->iExp << " / " << this->iRqExp << endl;
+	cout << "소지금 : " << this->iGold << "G" << endl;
+	cout << "힘 : " << this->iStr << endl << "민첩 : " << this->iDex << endl << "지능 : " << this->iInt << endl;
 	cout << "---------------------------------" << endl;
 	return;
 }
