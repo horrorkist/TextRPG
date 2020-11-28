@@ -79,8 +79,8 @@ void BattleManager::Battle(int field) {
 		switch (iChoice) {
 		case ACT_ATTACK: {
 
-			int iDealt = (cPlayer.iMinAtt + (rand() % (cPlayer.iMaxAtt - cPlayer.iMinAtt))) - mEnemy.iDef;
-			int iHurt = (mEnemy.iMinAtt + (rand() % (mEnemy.iMaxAtt - mEnemy.iMinAtt))) - cPlayer.iDef;
+			int iDealt = (cPlayer.iMinAtt + (rand() % (cPlayer.iMaxAtt - cPlayer.iMinAtt))) - mEnemy.iDef; if (iDealt < 0) iDealt = 0;
+			int iHurt = (mEnemy.iMinAtt + (rand() % (mEnemy.iMaxAtt - mEnemy.iMinAtt))) - cPlayer.iDef; if (iHurt < 0) iHurt = 0;
 
 			mEnemy.iHp -= iDealt;
 			//cout << mEnemy.sName << "에게 대미지를 " << iDealt << " 가했습니다!" << endl;

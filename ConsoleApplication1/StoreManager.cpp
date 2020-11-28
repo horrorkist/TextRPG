@@ -14,7 +14,7 @@ void StoreManager::StoreMenu() const
 		system("cls");
 		cout << "-------------------------------------------------" << endl;
 		cout << "1. 아이템 구매" << endl;
-		cout << "2. 상점 리셋" << endl;
+		cout << "2. 상점 새로고침" << endl;
 		cout << "3. 상점 업그레이드" << endl;
 		cout << "4. 메인메뉴 돌아가기" << endl;
 		cout << "-------------------------------------------------" << endl;
@@ -36,7 +36,7 @@ void StoreManager::StoreMenu() const
 			break;
 
 		case SM_RESET:
-			cout << "상점에 있는 아이템을 리셋합니다. ( 골드 : 00G )" << endl;
+			cout << "상점의 목록을 새로고침합니다. ( 골드 : 00G )" << endl;
 			//아이템 리셋
 			break;
 

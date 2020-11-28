@@ -75,6 +75,7 @@ void SystemManager::ShowMainMenu() const {
 			system("PAUSE");
 			break;
 		case MM_STATS: {
+			system("cls");
 			cPlayer.ShowCharStats();
 			cout << "1. 장비창 보기  2. 돌아가기" << endl;
 
@@ -130,7 +131,8 @@ void SystemManager::ShowBattleMenu() const {
 		cout << "1. 뒷산" << endl;
 		cout << "2. 들판" << endl;
 		cout << "3. 깊은 숲" << endl;
-		cout << "4. 돌아가기" << endl;
+		cout << "4. 오닉시아의 둥지" << endl;
+		cout << "5. 돌아가기" << endl;
 		cout << "************************************************" << endl;
 		cout << "선택하세요. : ";
 
@@ -142,9 +144,9 @@ void SystemManager::ShowBattleMenu() const {
 			continue;
 		}
 
-		if (iChoice == 4) break;
+		if (iChoice == 5) break;
 
-		if (iChoice < 1 || iChoice > 4) continue;
+		if (iChoice < 1 || iChoice > 5) continue;
 
 		battleManager.Battle(iChoice);
 

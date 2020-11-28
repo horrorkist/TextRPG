@@ -51,6 +51,7 @@ void Character::CreateNewChar() {
 void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	cout << "이름 : " << this->sName << endl;
+	cout << "레벨 : " << this->iLevel << endl;
 	cout << "HP : " << this->iHp << " / " << this->iMaxHp << endl;
 	cout << "MP : " << this->iMp << " / " << this->iMaxMp << endl;
 	cout << "공격력 : " << this->iMinAtt << " - " << this->iMaxAtt << endl;
@@ -61,3 +62,5 @@ void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	return;
 }
+
+Character NPC;
