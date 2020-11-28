@@ -4,11 +4,17 @@
 #include "Monster.h"
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
 SystemManager systemManager;
 BattleManager battleManager;
+
+ifstream inputStream;
+ofstream outputStream;
+
 
 //************************* Monster List *************************
 //(이름, 맥댐, 민댐, 방어, 골드, 경험치, 체력)
@@ -44,8 +50,15 @@ Character cPlayer;
 
 int main()
 {
-	
-	cPlayer.CreateNewChar();
+	inputStream.open("data.txt");
+	if (inputStream.is_open()) {
+		string str;
+		getline(inputStream, str);
+		cPlayer.SetUsingData(str);
+		inputStream.close();
+	}
+	else
+		cPlayer.CreateNewChar();
 	systemManager.ShowMainMenu();
 
 

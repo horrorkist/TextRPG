@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -29,6 +31,8 @@ protected:
 public:
 	void CreateNewChar();
 	void ShowCharStats() const;
+	void SetUsingData(string str);
+	string GetDataString();
 
 	friend class SystemManager;
 	friend class BattleManager;

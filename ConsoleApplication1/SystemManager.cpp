@@ -12,7 +12,7 @@ extern BattleManager battleManager;
 
 void SystemManager::ShowMainMenu() const {
 
-	enum MM_Choice {MM_ZERO, MM_BATTLE, MM_STORE, MM_INN, MM_STATS, MM_SAVE, MM_LOAD, MM_QUIT};
+	enum MM_Choice {MM_ZERO, MM_BATTLE, MM_STORE, MM_INN, MM_STATS, MM_SAVE, MM_QUIT};
 
 	while (true) {
 		system("cls");
@@ -22,7 +22,6 @@ void SystemManager::ShowMainMenu() const {
 		cout << "3. 여관" << endl;
 		cout << "4. 내 정보" << endl;
 		cout << "5. 저장" << endl;
-		cout << "6. 불러오기" << endl;
 		cout << "7. 종료" << endl;
 		cout << "-------------------------------------------------" << endl;
 		cout << "행동을 선택하세요 : " << endl;
@@ -94,10 +93,15 @@ void SystemManager::ShowMainMenu() const {
 			}
 		}
 			break;
-		case MM_SAVE:
-			break;
-		case MM_LOAD:
-			break;
+		case MM_SAVE: {
+			cout << "정보를 저장합니다. " << endl;
+			ofstream outputStream;
+			outputStream.open("data.txt");
+			string save = cPlayer.GetDataString();
+			outputStream.write(save.c_str(), save.size());
+			outputStream.close();
+			break; 
+		}
 		case MM_QUIT: {
 			cout << "게임을 종료할까요?(y/n)" << endl;
 			char cConfirm = 0;

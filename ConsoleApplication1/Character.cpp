@@ -1,4 +1,5 @@
 #include "Character.h"
+#include <sstream>
 
 void Character::CreateNewChar() {
 
@@ -61,6 +62,52 @@ void Character::ShowCharStats() const {
 	cout << "Èû : " << this->iStr << endl << "¹ÎÃ¸ : " << this->iDex << endl << "Áö´É : " << this->iInt << endl;
 	cout << "---------------------------------" << endl;
 	return;
+}
+
+void Character::SetUsingData(string str) {
+	istringstream ss(str);
+	vector<string> data;
+	data.clear();
+	while (getline(ss, str, ' ')) {
+		data.push_back(str);
+	}
+	this->sName = data[0];
+	this->iMaxHp = stoi(data[1]);
+	this->iHp = stoi(data[2]);
+	this->iMaxAtt = stoi(data[3]);
+	this->iMinAtt = stoi(data[4]);
+	this->iDef = stoi(data[5]);
+	this->iGold = stoi(data[6]);
+	this->iExp = stoi(data[7]);
+	this->iMaxMp = stoi(data[8]);
+	this->iMp = stoi(data[9]);
+	this->iLevel = stoi(data[10]);
+	this->iRqExp = stoi(data[11]);
+	this->iDodge = stoi(data[12]);
+	this->iStr = stoi(data[13]);
+	this->iDex = stoi(data[14]);
+	this->iInt = stoi(data[15]);
+}
+
+string Character::GetDataString() {
+	string data;
+	data.append(this->sName); data.append(" ");
+	data.append(to_string(this->iMaxHp)); data.append(" ");
+	data.append(to_string(this->iHp)); data.append(" ");
+	data.append(to_string(this->iMaxAtt)); data.append(" ");
+	data.append(to_string(this->iMinAtt)); data.append(" ");
+	data.append(to_string(this->iDef)); data.append(" ");
+	data.append(to_string(this->iGold)); data.append(" ");
+	data.append(to_string(this->iExp)); data.append(" ");
+	data.append(to_string(this->iMaxMp)); data.append(" ");
+	data.append(to_string(this->iMp)); data.append(" ");
+	data.append(to_string(this->iLevel)); data.append(" ");
+	data.append(to_string(this->iRqExp)); data.append(" ");
+	data.append(to_string(this->iDodge)); data.append(" ");
+	data.append(to_string(this->iStr)); data.append(" ");
+	data.append(to_string(this->iDex)); data.append(" ");
+	data.append(to_string(this->iInt));
+	return data;
 }
 
 Character NPC;
