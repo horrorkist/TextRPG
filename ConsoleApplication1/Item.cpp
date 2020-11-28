@@ -16,8 +16,8 @@ Item::Item(void) {
 	this->iItemMaxMp = 0;
 }
 
-void Item::Equip(Character player) {
-
+void Item::Equip(Character &player) {
+	
 	player.iMaxAtt -= player.Equipment[this->iType].iItemMaxAtt;
 	player.iMinAtt -= player.Equipment[this->iType].iItemMinAtt;
 	player.iStr -= player.Equipment[this->iType].iItemStr;
@@ -37,6 +37,7 @@ void Item::Equip(Character player) {
 	player.iMaxHp += player.Equipment[this->iType].iItemMaxHp;
 	player.iMaxMp += player.Equipment[this->iType].iItemMaxMp;
 	player.iDef += player.Equipment[this->iType].iItemDef;
+	
 }
 
 void Item::ItemCompare(Character player) { //착용 중인 아이템과 비교하여 보여주는 함수
@@ -49,8 +50,8 @@ void Item::ShowItemInfo() const {
 		//cout << "**************************************************" << endl;
 		cout << "비어있음" << endl;
 		cout << "**************************************************" << endl;
+		return;
 	}
-	return;
 
 	string strType;
 	switch (this->iType) {

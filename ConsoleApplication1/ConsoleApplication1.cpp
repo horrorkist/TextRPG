@@ -1,14 +1,12 @@
 ﻿#include "SystemManager.h"
 #include "BattleManager.h"
+#include "StoreManager.h"
 #include "Character.h"
 #include "Monster.h"
 #include <vector>
 #include <iostream>
 
 using namespace std;
-
-SystemManager systemManager;
-BattleManager battleManager;
 
 //************************* Monster List *************************
 //(이름, 맥댐, 민댐, 방어, 골드, 경험치, 체력)
@@ -66,7 +64,7 @@ Item MagePlate("메이지 플레이트", 3, 5, 0, 0, 300, 0, 0, 0, 5000, 1000);
 Item WoodenShield("나무 방패", 4, 1, 0, 0, 10, 0, 0, 0, 0, 0);
 Item IronShield("철 방패", 4, 2, 0, 0, 30, 0, 0, 0, 200, 100);
 Item ShildofPurification("정화의 방패", 4, 3, 0, 0, 50, 0, 0, 0, 600, 300);
-Item GoddessShield("여신의 방패", 3, 4, 0, 0, 100, 0, 0, 0, 1000, 500);
+Item GoddessShield("여신의 방패", 4, 4, 0, 0, 100, 0, 0, 0, 1000, 500);
 Item DragonShield("용의 방패", 4, 5, 0, 0, 300, 0, 0, 0, 3000, 1000);
 
 //장갑
@@ -86,6 +84,10 @@ vector<vector<Monster>> BattleFields = { {Mouse, Spider, Bet, Snake, Bandit}, {W
 //************************* Player *************************
 Character cPlayer;
 
+//************************* Manager *************************
+SystemManager	 systemManager;
+BattleManager	 battleManager;
+StoreManager	 storeManager;
 int main()
 {
 	

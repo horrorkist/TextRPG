@@ -8,6 +8,7 @@
 
 using namespace std;
 
+
 //************************* Item List *************************
 //iType;  0 : NONE, 1 : 무기, 2 : 투구, 3 : 갑옷, 4: 방패, 5 : 장갑, 6 : 신발
 //iRarity;  0 : NONE, 1 : 일반, 2 : 마법, 3 : 희귀, 4 : 레어, 5 : 유니크
@@ -66,7 +67,7 @@ private:
 	int		iMaxSlots = 3;
 	int		iSlotLimit = 10;
 
-	int		iRefCost = 50;
+	int		iRefCost = 0;
 	int		iStoreLevelUpCost = 500;
 	int		iAddSlotCost = 100;
 
@@ -83,13 +84,13 @@ private:
 		{0, 10, 25, 15, 35, 15}		//9레벨
 	};
 
-	vector<vector<Item>>	ItemList{
-		{None},
-		{LongSword, WoodenShield, ClothArmour, WoodenHelm},			//일반 등급
-		{Pickaxe, IronHelm, LeatherArmour, IronShield},				//마법 등급
-		{BFSword, SilverHelm, Maille, ShildofPurification},			//희귀 등급
-		{InfinityEdge, GoldHelm, PlateArmour, GoddessShield},		//레어 등급
-		{DawnBlade, Tiara, MagePlate, DragonShield}					//유니크 등급
+	vector<vector<Item>>	ItemList = {
+	{None},
+	{ LongSword, WoodenShield, ClothArmour, WoodenHelm },			//일반 등급
+	{ Pickaxe, IronHelm, LeatherArmour, IronShield },				//마법 등급
+	{ BFSword, SilverHelm, Maille, ShildofPurification },			//희귀 등급
+	{ InfinityEdge, GoldHelm, PlateArmour, GoddessShield },		//레어 등급
+	{ DawnBlade, Tiara, MagePlate, DragonShield }					//유니크 등급
 	};
 
 	Item	Slot[100];

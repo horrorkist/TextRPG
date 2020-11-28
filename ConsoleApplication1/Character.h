@@ -27,12 +27,13 @@ protected:
 	int		iDex;
 	int		iInt;
 
-	Item Equipment[6];
+	Item Equipment[7];
 
 public:
 
 	void CreateNewChar();
 	void ShowCharStats() const;
+	void ShowCharEquipments() const;
 
 	friend class StoreManager;
 	friend class SystemManager;

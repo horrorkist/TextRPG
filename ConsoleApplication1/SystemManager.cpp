@@ -1,5 +1,6 @@
 #include "SystemManager.h"
 #include "BattleManager.h"
+#include "StoreManager.h"
 #include "Monster.h"
 #include <vector>
 //#include "ConsoleApplication1.cpp"
@@ -9,6 +10,7 @@ using namespace std;
 extern Character cPlayer;
 extern vector<vector<Monster>> BattleFields;
 extern BattleManager battleManager;
+extern StoreManager storeManager;
 
 void SystemManager::ShowMainMenu() const {
 
@@ -25,7 +27,7 @@ void SystemManager::ShowMainMenu() const {
 		cout << "6. 불러오기" << endl;
 		cout << "7. 종료" << endl;
 		cout << "-------------------------------------------------" << endl;
-		cout << "행동을 선택하세요 : " << endl;
+		cout << "행동을 선택하세요 : ";
 
 		int iChoice;
 
@@ -67,29 +69,38 @@ void SystemManager::ShowMainMenu() const {
 			}*/
 			break;
 		case MM_STORE:
+			storeManager.ShowStoreMenu();
 			break;
 		case MM_INN:
 			system("cls");
 			cPlayer.iHp = cPlayer.iMaxHp;
+			cPlayer.iMp = cPlayer.iMaxMp;
 			cout << "체력을 회복했습니다." << endl;
 			system("PAUSE");
 			break;
 		case MM_STATS: {
 			system("cls");
 			cPlayer.ShowCharStats();
-			cout << "1. 장비창 보기  2. 돌아가기" << endl;
+			cout << "1. 내 장비 확인  2. 돌아가기" << endl;
 
-			int iChoice = 0;
+			//int iChoice = 0;
+			enum INFO {INFO_NONE, INFO_EQUIPMENT, INFO_RETURN};
 
-			while (iChoice != 1 && iChoice != 2) {
-				cout << endl << "선택하세요 : ";
-				
-				cin >> iChoice;
+			while (true) {
+				cout << endl << "선택하세요 : "; cin >> iChoice;
 
 				if (cin.fail()) {
 					cin.clear();
 					cin.ignore(1024, '\n');
 					continue;
+				}
+
+				if (iChoice == INFO_RETURN) break;
+
+				if (iChoice == INFO_EQUIPMENT) {
+					cPlayer.ShowCharEquipments();
+					system("PAUSE");
+					break;
 				}
 			}
 		}

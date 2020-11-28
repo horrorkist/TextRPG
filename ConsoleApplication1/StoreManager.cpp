@@ -9,12 +9,16 @@ enum SM_Choice { SM_ZERO, SM_BUY, SM_REFRESH, SM_UPGRADE, SM_INFO, SM_QUIT };
 
 void StoreManager::ShowStoreMenu()
 {
+	srand((unsigned int)time(NULL));
+
 	while (true)
 	{
 		system("cls");
 
+		
 		if (StoreManager::isAllSlotsEmpty()) {  // 진입 시 모든 슬롯이 비어있으면 모든 슬롯 채우기
-			for (int i = 0; i < iMaxSlots; i++) {
+			//cout << "모든 슬롯이 비어있습니다." << endl;
+			for (int i = 1; i <= iMaxSlots; i++) {
 				FillSlot(i);
 			}
 		}
@@ -31,7 +35,7 @@ void StoreManager::ShowStoreMenu()
 		cout << "4. 상점 정보 확인" << endl;
 		cout << "5. 돌아가기" << endl;
 		cout << "-------------------------------------------------" << endl;
-		cout << "선택하세요. : " << endl;
+		cout << "선택하세요. : ";
 
 		cin >> iChoice;
 
@@ -63,20 +67,27 @@ void StoreManager::ShowStoreMenu()
 				if (iChoice == 0) break;
 
 				if (1 <= iChoice && iChoice <= iMaxSlots) {
-					system("cls");
 
-					Slot[iChoice].ShowItemInfo();
-
-					if (cPlayer.iGold < Slot[iChoice].GetItemPrice()) {
-						cout << "소지금이 부족하여 구매할 수 없습니다. 현재 소지금 : " << cPlayer.iGold << "G" << endl;
+					if (!Slot[iChoice].GetItemType()) {
+						cout << "비어있는 슬롯은 구매할 수 없습니다." << endl;
 						system("PAUSE");
-						break;
+						continue;
 					}
-					cout << "『" << Slot[iChoice].GetItemName() << "』 을(를) 구매할까요? 장착 중인 아이템은 버려집니다. \n 현재 소지금 : " << cPlayer.iGold << "G (y/n)" << endl;
-
-					char cConfirm;
 
 					while (true) {
+
+						system("cls");
+
+						Slot[iChoice].ShowItemInfo();
+
+						if (cPlayer.iGold < Slot[iChoice].GetItemPrice()) {
+							cout << "소지금이 부족하여 구매할 수 없습니다. 현재 소지금 : " << cPlayer.iGold << "G" << endl;
+							system("PAUSE");
+							break;
+						}
+						cout << "『" << Slot[iChoice].GetItemName() << "』 을(를) 구매할까요? 장착 중인 아이템은 버려집니다. \n 현재 소지금 : " << cPlayer.iGold << "G (y/n)" << endl;
+
+						char cConfirm;
 
 						cin >> cConfirm;
 
@@ -92,6 +103,11 @@ void StoreManager::ShowStoreMenu()
 							cout << cPlayer.iGold << "G" << endl;
 							Slot[iChoice].Equip(cPlayer);
 							Slot[iChoice] = None;
+
+							if (isAllSlotsEmpty()) {
+								cout << endl << "모든 슬롯의 아이템을 구매하여 목록이 새로고침 됩니다." << endl;
+								for (int i = 1; i <= iMaxSlots; i++) FillSlot(i);
+							}
 							system("PAUSE");
 							break;
 						}
@@ -134,7 +150,7 @@ void StoreManager::ShowStoreMenu()
 						break;
 					}
 					cPlayer.iGold -= iRefCost;
-					for (int i = 0; i < iMaxSlots; i++) {
+					for (int i = 1; i <= iMaxSlots; i++) {
 						FillSlot(i);
 					}
 					cout << "모든 슬롯이 새로고침 되었습니다." << endl;
@@ -236,6 +252,7 @@ void StoreManager::ShowStoreMenu()
 							}
 							cPlayer.iGold -= iAddSlotCost;
 							iMaxSlots++;
+							Slot[iMaxSlots] = None;
 							cout << "상점 슬롯이 늘어났습니다. 현재 슬롯 수 : " << iMaxSlots << endl;
 							system("PAUSE");
 							break;
@@ -267,6 +284,7 @@ void StoreManager::ShowStoreMenu()
 			cout << "현재 상점 슬롯 수 : " << iMaxSlots << endl;
 			if (iMaxSlots < iSlotLimit) cout << "다음 슬롯 비용 : " << iAddSlotCost << "G" << endl;
 			else cout << "현재 상점 슬롯 수가 최대입니다." << endl << endl;
+			system("PAUSE");
 			break;
 		default:
 			cout << "잘못된 입력입니다. 다시 선택하세요." << endl;
@@ -279,29 +297,30 @@ void StoreManager::ShowStoreMenu()
 }
 
 void StoreManager::ShowStoreList() const {
-	for (int i = 0; i < iMaxSlots; i++) {
-		cout << i+1 << "번 슬롯" << endl;
+	for (int i = 1; i <= iMaxSlots; i++) {
+		cout << i << "번 슬롯" << endl;
 		Slot[i].ShowItemInfo();
+		cout << endl;
 	}
 	return;
 }
 
 bool StoreManager::isAllSlotsEmpty() const {
-	for (int i = 0; i < iMaxSlots; i++) {
+	for (int i = 1; i <= iMaxSlots; i++) {
 		if (Slot[i].GetItemType()) return false;
 	}
 	return true;
 }
 
 void StoreManager::FillSlot(int toFill) {
-	srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
 
 	int iDice = (rand() % 100) + 1;
 	int iChanceBar = 0;
-	for (int i = 1; i <= 6; i++) {
+	for (int i = 1; i <= 5; i++) {
 		iChanceBar += Odds[iStoreLevel][i];
 		if (iDice <= iChanceBar) {
-			iDice = rand() % ItemList[i].size();
+			iDice = (rand() % ItemList[i].size());
 			Slot[toFill] = ItemList[i][iDice];
 			return;
 		}

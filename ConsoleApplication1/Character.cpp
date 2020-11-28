@@ -62,3 +62,12 @@ void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
 	return;
 }
+
+void Character::ShowCharEquipments() const {
+	cout << "************* 착용 중인 장비 *************" << endl;
+	for (int i = 1; i <= 6; i++) {
+		Equipment[i].ShowItemInfo();
+	}
+	cout << "**************************" << endl;
+	return;
+}
