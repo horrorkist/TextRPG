@@ -7,15 +7,15 @@ void Character::CreateNewChar() {
 
 	while (true) {
 		system("cls");
-		cout << "ĳ������ �̸��� �Է����ּ���. : ";
+		cout << "캐릭터의 이름을 입력해주세요. : ";
 
 		cin >> sTempName;
 
 		if (sTempName.length() < 2 || sTempName.length() > 10) {
-			cout << "�̸��� �ʹ� ª�ų� ��ϴ�. 2�ڿ��� 10�� �̳��� �Է����ּ���." << endl;
+			cout << "이름이 너무 짧거나 깁니다. 2자에서 10자 이내로 입력해주세요." << endl;
 		}
 		else {
-			cout << "ĳ������ �̸��� " << sTempName << " ���� ���Ͻðڽ��ϱ�?(y/n)" << endl;
+			cout << "캐릭터의 이름을 " << sTempName << " 으로 정하시겠습니까?(y/n)" << endl;
 			char cConfirm = 0;
 			cin >> cConfirm;
 			switch (cConfirm) {
@@ -36,10 +36,10 @@ void Character::CreateNewChar() {
 				this->iInt = 5;
 				this->iDef = 0;
 				this->iDodge = 0;
-				cout << "ĳ���� ������ �Ϸ�Ǿ����ϴ�." << endl;
+				cout << "캐릭터 생성이 완료되었습니다." << endl;
 				return;
 			}
-				break;
+					  break;
 			case 'n':
 				break;
 			default:
