@@ -23,6 +23,7 @@ private:
 	int			iItemMaxHp;
 	int			iItemMaxMp;
 
+	int			iPrice;
 public:
 
 	Item(void);
@@ -32,4 +33,8 @@ public:
 
 	void Equip(Character player);
 	void ItemCompare(Character player);
+	void ShowItemInfo() const;
+	int GetItemType() const { return iType; }
+	int GetItemPrice() const { return iPrice; }
+	string GetItemName() const { return strName; }
 };

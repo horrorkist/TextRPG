@@ -34,6 +34,7 @@ public:
 	void CreateNewChar();
 	void ShowCharStats() const;
 
+	friend class StoreManager;
 	friend class SystemManager;
 	friend class BattleManager;
 	friend class Item;
