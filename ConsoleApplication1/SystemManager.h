@@ -14,6 +14,6 @@ private:
 public:
 
 	void ShowMainMenu() const;
-
+	void ShowBattleMenu() const;
 };
 

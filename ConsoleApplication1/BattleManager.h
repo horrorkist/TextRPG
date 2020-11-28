@@ -12,7 +12,7 @@ class BattleManager
 private:
 
 public:
-	void ShowBattleFields() const;
+	
 	void Battle(int field);
 };
 
