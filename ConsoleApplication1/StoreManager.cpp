@@ -58,3 +58,7 @@ void StoreManager::StoreMenu() const
 	}
 
 }
+
+void StoreManager::ShowStoreList() const {
+	
+}

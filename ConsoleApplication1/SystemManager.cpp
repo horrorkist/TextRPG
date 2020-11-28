@@ -22,7 +22,7 @@ void SystemManager::ShowMainMenu() const {
 		cout << "3. 여관" << endl;
 		cout << "4. 내 정보" << endl;
 		cout << "5. 저장" << endl;
-		cout << "7. 종료" << endl;
+		cout << "6. 종료" << endl;
 		cout << "-------------------------------------------------" << endl;
 		cout << "행동을 선택하세요 : " << endl;
 
@@ -34,6 +34,25 @@ void SystemManager::ShowMainMenu() const {
 			cin.clear();
 			cin.ignore(1024, '\n');
 			continue;
+		}
+
+
+		if (iChoice == MM_QUIT) {
+			cout << "게임을 종료할까요?(y/n)" << endl;
+			char cConfirm = 0;
+			cin.ignore();
+			cin >> cConfirm;
+			switch (cConfirm) {
+			case 'y': {
+				cout << "게임을 종료합니다." << endl;
+				return;
+			}
+					  break;
+			case 'n':
+				continue;
+			default:
+				continue;
+			}
 		}
 
 		switch (iChoice) {
@@ -101,24 +120,6 @@ void SystemManager::ShowMainMenu() const {
 			outputStream.write(save.c_str(), save.size());
 			outputStream.close();
 			break; 
-		}
-		case MM_QUIT: {
-			cout << "게임을 종료할까요?(y/n)" << endl;
-			char cConfirm = 0;
-			cin.ignore();
-			cin >> cConfirm;
-			switch (cConfirm) {
-			case 'y': {
-				cout << "게임을 종료합니다." << endl;
-				return;
-			}
-				break;
-			case 'n':
-				break;
-			default:
-				break;
-			}
-			break;
 		}
 		default:
 			cout << "잘못된 입력입니다. 다시 선택하세요." << endl;

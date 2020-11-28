@@ -32,4 +32,5 @@ public:
 
 	void Equip(Character player);
 	void ItemCompare(Character player);
+	void ShowItemInfo() const;
 };
