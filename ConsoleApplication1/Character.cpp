@@ -7,15 +7,15 @@ void Character::CreateNewChar() {
 
 	while (true) {
 		system("cls");
-		cout << "Ä³¸¯ÅÍÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ";
+		cout << "Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½. : ";
 
 		cin >> sTempName;
 
 		if (sTempName.length() < 2 || sTempName.length() > 10) {
-			cout << "ÀÌ¸§ÀÌ ³Ê¹« Âª°Å³ª ±é´Ï´Ù. 2ÀÚ¿¡¼­ 10ÀÚ ÀÌ³»·Î ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+			cout << "ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ Âªï¿½Å³ï¿½ ï¿½ï¿½Ï´ï¿½. 2ï¿½Ú¿ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½." << endl;
 		}
 		else {
-			cout << "Ä³¸¯ÅÍÀÇ ÀÌ¸§À» " << sTempName << " À¸·Î Á¤ÇÏ½Ã°Ú½À´Ï±î?(y/n)" << endl;
+			cout << "Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ " << sTempName << " ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?(y/n)" << endl;
 			char cConfirm = 0;
 			cin >> cConfirm;
 			switch (cConfirm) {
@@ -36,7 +36,7 @@ void Character::CreateNewChar() {
 				this->iInt = 5;
 				this->iDef = 0;
 				this->iDodge = 0;
-				cout << "Ä³¸¯ÅÍ »ý¼ºÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl;
+				cout << "Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl;
 				return;
 			}
 				break;
@@ -51,15 +51,15 @@ void Character::CreateNewChar() {
 
 void Character::ShowCharStats() const {
 	cout << "---------------------------------" << endl;
-	cout << "ÀÌ¸§ : " << this->sName << endl;
-	cout << "·¹º§ : " << this->iLevel << endl;
+	cout << "ï¿½Ì¸ï¿½ : " << this->sName << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ : " << this->iLevel << endl;
 	cout << "HP : " << this->iHp << " / " << this->iMaxHp << endl;
 	cout << "MP : " << this->iMp << " / " << this->iMaxMp << endl;
-	cout << "°ø°Ý·Â : " << this->iMinAtt << " - " << this->iMaxAtt << endl;
-	cout << "¹æ¾î·Â : " << this->iDef << endl;
-	cout << "°æÇèÄ¡ : " << this->iExp << " / " << this->iRqExp << endl;
-	cout << "¼ÒÁö±Ý : " << this->iGold << "G" << endl;
-	cout << "Èû : " << this->iStr << endl << "¹ÎÃ¸ : " << this->iDex << endl << "Áö´É : " << this->iInt << endl;
+	cout << "ï¿½ï¿½ï¿½Ý·ï¿½ : " << this->iMinAtt << " - " << this->iMaxAtt << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ : " << this->iDef << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½Ä¡ : " << this->iExp << " / " << this->iRqExp << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " << this->iGold << "G" << endl;
+	cout << "ï¿½ï¿½ : " << this->iStr << endl << "ï¿½ï¿½Ã¸ : " << this->iDex << endl << "ï¿½ï¿½ï¿½ï¿½ : " << this->iInt << endl;
 	cout << "---------------------------------" << endl;
 	return;
 }

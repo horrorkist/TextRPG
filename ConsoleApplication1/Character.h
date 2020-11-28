@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include "Item.h"
 
 using namespace std;
 
@@ -28,7 +29,10 @@ protected:
 	int		iDex;
 	int		iInt;
 
+	Item Equipment[6];
+
 public:
+
 	void CreateNewChar();
 	void ShowCharStats() const;
 	void SetUsingData(string str);
@@ -36,5 +40,6 @@ public:
 
 	friend class SystemManager;
 	friend class BattleManager;
+	friend class Item;
 };
 
