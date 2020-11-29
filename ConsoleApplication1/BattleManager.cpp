@@ -1,11 +1,13 @@
 #include "BattleManager.h"
 #include "MonsterDB.h"
 #include "Monster.h"
+#include "ItemDB.h"
 #include <cstdlib>
 #include <ctime>
 
 extern Character cPlayer;
 extern MonsterDB monsterDB;
+extern ItemDB itemDB;
 
 enum ACTChoice {ACT_ZERO, ACT_ATTACK, ACT_ITEM, ACT_RUN };
 
@@ -80,6 +82,71 @@ void BattleManager::Battle(int field) {
 					cPlayer.iMinAtt += 2;	cPlayer.iMaxAtt += 5;
 					cPlayer.iMaxMp += 30;	cPlayer.iMp = cPlayer.iMaxMp;
 					cout << "레벨이 올랐습니다!" << endl;
+				}
+				int iDice = (rand() % 100) + 1;
+				if (iDice <= mEnemy.iDropChance) {
+					iDice = (rand() % 100) + 1;
+					int iDropItemTier, iChanceBar = 0;
+					for (int i = 1; i <= 5; i++) {
+						iChanceBar += mEnemy.vDropChance2D[mEnemy.iMonsterRank][i];
+						if (iDice <= iChanceBar) {
+							iDropItemTier = i;
+							break;
+						}
+					}
+					iDice = rand() % mEnemy.vDropTableCode2D[iDropItemTier].size();
+
+					hash_map<int, Item>::iterator FindIter = itemDB.Item_Hash.find(mEnemy.vDropTableCode2D[iDropItemTier][iDice]);
+
+					Item itemDropItem = FindIter->second;
+
+					cout << "떨어진 아이템이 있습니다! 확인하시겠습니까?(y/n)" << endl;
+
+					bool bCheckDropItem = false;
+
+					while (true) {
+						if (bCheckDropItem) break;
+
+						char cConfirm;
+
+						cin >> cConfirm;
+
+						if (cin.fail()) {
+							cin.clear();
+							cin.ignore(1024, '\n');
+							continue;
+						}
+
+						if (cConfirm == 'y') {
+							system("cls");
+							itemDropItem.ShowItemInfo();
+							cout << endl;
+							cout << "이 아이템을 착용할까요? 착용 중인 아이템은 버려집니다.(y/n)";
+							while (true) {
+								char cConfirm;
+
+								cin >> cConfirm;
+
+								if (cin.fail()) {
+									cin.clear();
+									cin.ignore(1024, '\n');
+									continue;
+								}
+
+								if (cConfirm == 'y') {
+									bCheckDropItem = true;
+									itemDropItem.Equip(cPlayer);
+									cout << "『" << itemDropItem.GetItemName() << "』을(를) 착용했습니다." << endl;
+									break;
+								}
+								if (cConfirm == 'n') {
+									bCheckDropItem = true;
+									break;
+								}
+							}
+						}
+						if (cConfirm == 'n') break;
+					}
 				}
 			}
 			else {

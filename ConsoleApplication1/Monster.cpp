@@ -10,7 +10,7 @@ void Monster::ShowCharStats() const {
 	cout << "¹æ¾î·Â : " << this->iDef << endl;
 	cout << "---------------------------------" << endl;
 }
-Monster::Monster(string strName, int maxAtt, int minAtt, int def, int gold, int exp, int maxHp) {
+Monster::Monster(string strName, int maxAtt, int minAtt, int def, int gold, int exp, int maxHp, int rank) {
 	this->sName = strName;
 	this->iMaxAtt = maxAtt;
 	this->iMinAtt = minAtt;
@@ -19,4 +19,5 @@ Monster::Monster(string strName, int maxAtt, int minAtt, int def, int gold, int 
 	this->iExp = exp;
 	this->iMaxHp = maxHp;
 	this->iHp = maxHp;
+	this->iMonsterRank = rank;
 }
