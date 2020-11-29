@@ -12,7 +12,9 @@ class BattleManager
 private:
 
 public:
-	
+
 	void Battle(int field);
+	void ShowBattleMenu();
+
 };
 

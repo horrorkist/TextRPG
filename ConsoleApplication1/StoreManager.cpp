@@ -1,7 +1,8 @@
 #include "StoreManager.h"
-#include "SystemManager.h"
-#include "Item.h"
+#include "ItemDB.h"
 
+extern ItemDB itemDB;
+extern Character cPlayer;
 
 //************************* Member Functions *************************
 
@@ -102,7 +103,7 @@ void StoreManager::ShowStoreMenu()
 							cPlayer.iGold -= Slot[iChoice].GetItemPrice();
 							cout << cPlayer.iGold << "G" << endl;
 							Slot[iChoice].Equip(cPlayer);
-							Slot[iChoice] = None;
+							Slot[iChoice] = itemDB.None;
 
 							if (isAllSlotsEmpty()) {
 								cout << endl << "모든 슬롯의 아이템을 구매하여 목록이 새로고침 됩니다." << endl;
@@ -252,7 +253,7 @@ void StoreManager::ShowStoreMenu()
 							}
 							cPlayer.iGold -= iAddSlotCost;
 							iMaxSlots++;
-							Slot[iMaxSlots] = None;
+							Slot[iMaxSlots] = itemDB.None;
 							cout << "상점 슬롯이 늘어났습니다. 현재 슬롯 수 : " << iMaxSlots << endl;
 							system("PAUSE");
 							break;
@@ -320,8 +321,8 @@ void StoreManager::FillSlot(int toFill) {
 	for (int i = 1; i <= 5; i++) {
 		iChanceBar += Odds[iStoreLevel][i];
 		if (iDice <= iChanceBar) {
-			iDice = (rand() % ItemList[i].size());
-			Slot[toFill] = ItemList[i][iDice];
+			iDice = (rand() % itemDB.ItemList2D[i].size());
+			Slot[toFill] = itemDB.ItemList2D[i][iDice];
 			return;
 		}
 	}
