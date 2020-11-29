@@ -21,6 +21,7 @@ public:
 	//Monster Wisp;
 	//Monster Kobold;
 	//Monster Skeleton;
+
 	Monster Goblin			{ "고블린", 60, 40, 3, 200, 80, 250 };
 	Monster Orc				{ "오크", 120, 80, 5, 350, 100, 400 };
 	Monster Ogre			{ "오우거", 150, 100, 10, 500, 150, 1000 };
@@ -37,5 +38,7 @@ public:
 		{Goblin, Orc, Ogre},
 		{Hatchling, Dragon}
 	};
+
+	vector<vector<int>> DropChance2D;
 };
 
