@@ -2,8 +2,11 @@
 #include <string>
 #include <iostream>
 #include "Item.h"
+#include "ItemDB.h"
 
 using namespace std;
+
+extern ItemDB itemDB;
 
 class Character
 {
@@ -27,7 +30,7 @@ protected:
 	int		iDex;
 	int		iInt;
 
-	Item Equipment[7];
+	Item Equipment[7] = { itemDB.None, itemDB.None, itemDB.None, itemDB.None, itemDB.None, itemDB.None, itemDB.None };
 
 public:
 
