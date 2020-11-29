@@ -4,6 +4,8 @@
 #include <hash_map>
 #include <vector>
 
+extern ItemDB itemDB;
+
 class ItemDB
 {
 public:
@@ -57,6 +59,7 @@ public:
 
 	hash_map<int, Item> Item_Hash
 	{
+		make_pair(None.iCode, None),
 		make_pair(LongSword.iCode, LongSword),
 		make_pair(Pickaxe.iCode, Pickaxe),
 		make_pair(BFSword.iCode, BFSword),
@@ -93,5 +96,12 @@ public:
 	{ InfinityEdge, GoldHelm, PlateArmour, GoddessShield },			//레어 등급
 	{ DawnBlade, Tiara, MagePlate, DragonShield }					//유니크 등급
 	};
+
+public:
+	Item GetItem(int code) {
+		hash_map<int, Item>::iterator itr =itemDB.Item_Hash.find(code);
+		Item item = itr->second;
+		return item;
+	}
 };
 

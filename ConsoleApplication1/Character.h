@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include "Item.h"
+#include "ItemDB.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ public:
 	void SetUsingData(string str);
 	string GetDataString();
 	void ShowCharEquipments() const;
+	void GetItemCodes();
 
 	friend class StoreManager;
 	friend class SystemManager;

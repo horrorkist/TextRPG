@@ -41,6 +41,7 @@ public:
 	int GetItemType() const { return iType; }
 	int GetItemPrice() const { return iPrice; }
 	string GetItemName() const { return strName; }
+	int GetItemCode() const { return iCode; }
 
 	friend class ItemDB;
 };

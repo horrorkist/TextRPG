@@ -1,6 +1,7 @@
 ﻿#include "Character.h"
 #include <sstream>
 
+extern ItemDB itemDB;
 void Character::CreateNewChar() {
 
 	string sTempName;
@@ -86,7 +87,14 @@ void Character::SetUsingData(string str) {
 	this->iDodge = stoi(data[12]);
 	this->iStr = stoi(data[13]);
 	this->iDex = stoi(data[14]);
-	this->iInt = stoi(data[15]);}
+	this->iInt = stoi(data[15]);
+	this->Equipment[1] = itemDB.GetItem(stoi(data[16]));
+	this->Equipment[2] = itemDB.GetItem(stoi(data[17]));
+	this->Equipment[3] = itemDB.GetItem(stoi(data[18]));
+	this->Equipment[4] = itemDB.GetItem(stoi(data[19]));
+	this->Equipment[5] = itemDB.GetItem(stoi(data[20]));
+	this->Equipment[6] = itemDB.GetItem(stoi(data[21]));
+}
 
 string Character::GetDataString() {
 	string data;
@@ -105,7 +113,13 @@ string Character::GetDataString() {
 	data.append(to_string(this->iDodge)); data.append(" ");
 	data.append(to_string(this->iStr)); data.append(" ");
 	data.append(to_string(this->iDex)); data.append(" ");
-	data.append(to_string(this->iInt));
+	data.append(to_string(this->iInt)); data.append(" ");
+	data.append(to_string(this->Equipment[1].GetItemCode())); data.append(" ");
+	data.append(to_string(this->Equipment[2].GetItemCode())); data.append(" ");
+	data.append(to_string(this->Equipment[3].GetItemCode())); data.append(" ");
+	data.append(to_string(this->Equipment[4].GetItemCode())); data.append(" ");
+	data.append(to_string(this->Equipment[5].GetItemCode())); data.append(" ");
+	data.append(to_string(this->Equipment[6].GetItemCode()));
 	return data;
 }
 
