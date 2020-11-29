@@ -11,9 +11,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-SystemManager systemManager;
-BattleManager battleManager;
 
 ifstream inputStream;
 ofstream outputStream;
@@ -91,12 +88,7 @@ Item LightGauntlet;
 //신발
 Item BattleBoots;
 
-//************************* Battle Field List *************************
-vector<vector<Monster>> BattleFields = { {Mouse, Spider, Bet, Snake, Bandit}, {Wolf, Bear, Wildboar}, {Goblin, Orc, Ogre}, {Hatchling, Dragon} };
 
-
-=======
->>>>>>> Item
 //************************* Player *************************
 Character cPlayer;
 

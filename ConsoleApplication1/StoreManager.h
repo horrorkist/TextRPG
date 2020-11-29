@@ -12,13 +12,11 @@ class StoreManager
 {
 private:
 
-<<<<<<< HEAD
 	int storelevel = 1; //상점 레벨
 
 	Item Slot1;
 	Item Slot2;
 	Item Slot3;
-=======
 	int		iStoreLevel = 1; //상점 레벨
 	int		iStoreLevelLimit = 9;
 
@@ -43,28 +41,23 @@ private:
 	};
 
 	Item	Slot[100];
->>>>>>> Item
 
 
 public:
 
-<<<<<<< HEAD
 	void StoreMenu() const;
 
 	void ShowStoreList() const;
 
-=======
 	bool isAllSlotsEmpty() const;
 
 	void ShowStoreMenu();
 
-	void ShowStoreList() const;
 
 	void FillSlot(int slotNum);
 
 	void StoreUpgrade();
 
 	void StoreRefesh();
->>>>>>> Item
 };
 

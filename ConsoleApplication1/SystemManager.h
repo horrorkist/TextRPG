@@ -1,11 +1,8 @@
 #pragma once
 #include <iostream>
-<<<<<<< HEAD
 #include <fstream>
 #include "Character.h"
-=======
 //#include "Character.h"
->>>>>>> Item
 
 using namespace std;
 

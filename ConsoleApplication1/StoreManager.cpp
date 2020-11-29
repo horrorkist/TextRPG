@@ -298,9 +298,6 @@ void StoreManager::ShowStoreMenu()
 }
 
 void StoreManager::ShowStoreList() const {
-<<<<<<< HEAD
-	
-=======
 	for (int i = 1; i <= iMaxSlots; i++) {
 		cout << i << "¹ø ½½·Ô" << endl;
 		Slot[i].ShowItemInfo();
@@ -334,5 +331,4 @@ void StoreManager::FillSlot(int toFill) {
 	system("PAUSE");
 
 	return;
->>>>>>> Item
 }

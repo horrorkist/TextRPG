@@ -1,4 +1,4 @@
-#include "Character.h"
+﻿#include "Character.h"
 #include <sstream>
 
 void Character::CreateNewChar() {
@@ -86,8 +86,7 @@ void Character::SetUsingData(string str) {
 	this->iDodge = stoi(data[12]);
 	this->iStr = stoi(data[13]);
 	this->iDex = stoi(data[14]);
-	this->iInt = stoi(data[15]);
-}
+	this->iInt = stoi(data[15]);}
 
 string Character::GetDataString() {
 	string data;
