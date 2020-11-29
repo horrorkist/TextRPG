@@ -12,11 +12,6 @@ class StoreManager
 {
 private:
 
-	int storelevel = 1; //상점 레벨
-
-	Item Slot1;
-	Item Slot2;
-	Item Slot3;
 	int		iStoreLevel = 1; //상점 레벨
 	int		iStoreLevelLimit = 9;
 
@@ -44,8 +39,6 @@ private:
 
 
 public:
-
-	void StoreMenu() const;
 
 	void ShowStoreList() const;
 

@@ -109,9 +109,8 @@ string Character::GetDataString() {
 	return data;
 }
 
-Character NPC;
 void Character::ShowCharEquipments() const {
-	cout << "************* ���� ���� ��� *************" << endl;
+	cout << "************* 착용 중인 장비 *************" << endl;
 	for (int i = 1; i <= 6; i++) {
 		Equipment[i].ShowItemInfo();
 	}
