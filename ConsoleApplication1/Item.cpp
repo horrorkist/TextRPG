@@ -24,7 +24,9 @@ void Item::Equip(Character &player) {
 	player.iDex -= player.Equipment[this->iType].iItemDex;
 	player.iInt -= player.Equipment[this->iType].iItemInt;
 	player.iMaxHp -= player.Equipment[this->iType].iItemMaxHp;
+	player.iHp -= player.Equipment[this->iType].iItemMaxHp;
 	player.iMaxMp -= player.Equipment[this->iType].iItemMaxMp;
+	player.iMp -= player.Equipment[this->iType].iItemMaxMp;
 	player.iDef -= player.Equipment[this->iType].iItemDef;
 
 	player.Equipment[this->iType] = *this;
@@ -35,7 +37,9 @@ void Item::Equip(Character &player) {
 	player.iDex += player.Equipment[this->iType].iItemDex;
 	player.iInt += player.Equipment[this->iType].iItemInt;
 	player.iMaxHp += player.Equipment[this->iType].iItemMaxHp;
+	player.iHp += player.Equipment[this->iType].iItemMaxHp;
 	player.iMaxMp += player.Equipment[this->iType].iItemMaxMp;
+	player.iMp += player.Equipment[this->iType].iItemMaxMp;
 	player.iDef += player.Equipment[this->iType].iItemDef;
 	
 }

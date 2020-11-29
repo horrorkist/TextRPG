@@ -11,6 +11,7 @@ extern StoreManager storeManager;
 
 void SystemManager::ShowMainMenu() {
 
+
 	enum MM_Choice {MM_ZERO, MM_BATTLE, MM_STORE, MM_INN, MM_STATS, MM_SAVE, MM_QUIT};
 
 	while (true) {

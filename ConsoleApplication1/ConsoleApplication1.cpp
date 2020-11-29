@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Windows.h>
 
 using namespace std;
 
@@ -35,6 +36,14 @@ int main()
 		getline(inputStream, str);
 		cPlayer.SetUsingData(str);
 		inputStream.close();
+		cout << "데이터를 자동으로 불러옵니다." << endl;
+		Sleep(600);
+		system("cls");
+		cout << "데이터를 자동으로 불러옵니다.." << endl;
+		Sleep(600);
+		system("cls");
+		cout << "데이터를 자동으로 불러옵니다..." << endl;
+		Sleep(600);
 	}
 	else
 		cPlayer.CreateNewChar();
