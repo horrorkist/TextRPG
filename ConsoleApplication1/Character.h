@@ -29,7 +29,7 @@ protected:
 	int		iDex;
 	int		iInt;
 
-	Item Equipment[6];
+	Item Equipment[7];
 
 public:
 
@@ -37,7 +37,9 @@ public:
 	void ShowCharStats() const;
 	void SetUsingData(string str);
 	string GetDataString();
+	void ShowCharEquipments() const;
 
+	friend class StoreManager;
 	friend class SystemManager;
 	friend class BattleManager;
 	friend class Item;

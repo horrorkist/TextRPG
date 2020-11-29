@@ -23,14 +23,23 @@ private:
 	int			iItemMaxHp;
 	int			iItemMaxMp;
 
+	int			iPrice;
 public:
 
 	Item(void);
 
 	Item(string name, int type, int rarity, int minAtt, int maxAtt, int def, int str, int dex, int intel, int maxHp, int maxMp)
-		: strName(name), iType(type), iRarity(rarity), iItemMaxAtt(maxAtt), iItemMinAtt(minAtt), iItemDef(def), iItemStr(str), iItemDex(dex), iItemInt(intel), iItemMaxHp(maxHp), iItemMaxMp(maxMp) {};
+		: strName(name), iType(type), iRarity(rarity), iItemMaxAtt(maxAtt), iItemMinAtt(minAtt), iItemDef(def), iItemStr(str), iItemDex(dex), iItemInt(intel), iItemMaxHp(maxHp), iItemMaxMp(maxMp) {
+		iPrice = 0;
+	};
 
-	void Equip(Character player);
+	void Equip(Character &player);
 	void ItemCompare(Character player);
 	void ShowItemInfo() const;
+<<<<<<< HEAD
+=======
+	int GetItemType() const { return iType; }
+	int GetItemPrice() const { return iPrice; }
+	string GetItemName() const { return strName; }
+>>>>>>> Item
 };

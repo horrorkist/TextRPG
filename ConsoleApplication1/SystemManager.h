@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
 #include "Character.h"
+=======
+//#include "Character.h"
+>>>>>>> Item
 
 using namespace std;
 
@@ -9,12 +13,17 @@ class SystemManager
 {
 private:
 
-	Character Player;
+	//Character Player;
 	
 
 public:
 
-	void ShowMainMenu() const;
-	void ShowBattleMenu() const;
+	void Heal();
+
+	void ShowMainMenu();
+
+	void ShowMyInfo() const;
+
+	bool QuitGame() const;
 };
 

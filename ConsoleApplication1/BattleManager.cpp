@@ -1,12 +1,45 @@
 #include "BattleManager.h"
+#include "MonsterDB.h"
 #include "Monster.h"
 #include <cstdlib>
 #include <ctime>
 
 extern Character cPlayer;
-extern vector<vector<Monster>> BattleFields;
+extern MonsterDB monsterDB;
 
 enum ACTChoice {ACT_ZERO, ACT_ATTACK, ACT_ITEM, ACT_RUN };
+
+void BattleManager::ShowBattleMenu() {
+
+	int iChoice;
+
+	while (true) {
+		system("cls");
+		cout << "************************ 사냥터를 선택하세요. ************************" << endl;
+		cout << "1. 뒷산" << endl;
+		cout << "2. 들판" << endl;
+		cout << "3. 깊은 숲" << endl;
+		cout << "4. 오닉시아의 둥지" << endl;
+		cout << "5. 돌아가기" << endl;
+		cout << "************************************************" << endl;
+		cout << "선택하세요. : ";
+
+		cin >> iChoice;
+
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(1024, '\n');
+			continue;
+		}
+
+		if (iChoice == 5) break;
+
+		if (iChoice < 1 || iChoice > 5) continue;
+
+		BattleManager::Battle(iChoice);
+
+	}
+}
 
 void BattleManager::Battle(int field) {
 
@@ -19,9 +52,9 @@ void BattleManager::Battle(int field) {
 
 	//정한 몬스터를 생성한다.
 
-	int index = rand() % BattleFields[field-1].size();
+	int index = rand() % monsterDB.BattleFields2D[field-1].size();
 
-	Monster mEnemy = BattleFields[field-1][index];
+	Monster mEnemy = monsterDB.BattleFields2D[field-1][index];
 
 	//몬스터나 플레이어 중 하나가 죽을 때 까지
 
@@ -43,7 +76,7 @@ void BattleManager::Battle(int field) {
 				cout << mEnemy.sName << "을(를) 처치했습니다! " << mEnemy.iGold << "G 획득, 경험치 " << mEnemy.iExp << " 획득." << endl;
 				cPlayer.iGold += mEnemy.iGold;
 				cPlayer.iExp += mEnemy.iExp;
-				if (cPlayer.iRqExp <= cPlayer.iExp) {	//레벨업 하는 경우
+				while (cPlayer.iRqExp <= cPlayer.iExp) {
 					cPlayer.iExp -= cPlayer.iRqExp;
 					cPlayer.iLevel++;
 					cPlayer.iRqExp *= 1.05;
@@ -104,8 +137,9 @@ void BattleManager::Battle(int field) {
 				break;
 			}
 			break;
-
 		}
+		case ACT_ITEM:
+			break;
 		case ACT_RUN:
 			return;
 		default:

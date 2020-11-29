@@ -1,16 +1,15 @@
 #include "SystemManager.h"
 #include "BattleManager.h"
-#include "Monster.h"
+#include "StoreManager.h"
 #include <vector>
-//#include "ConsoleApplication1.cpp"
 
 using namespace std;
 
 extern Character cPlayer;
-extern vector<vector<Monster>> BattleFields;
 extern BattleManager battleManager;
+extern StoreManager storeManager;
 
-void SystemManager::ShowMainMenu() const {
+void SystemManager::ShowMainMenu() {
 
 	enum MM_Choice {MM_ZERO, MM_BATTLE, MM_STORE, MM_INN, MM_STATS, MM_SAVE, MM_QUIT};
 
@@ -24,7 +23,7 @@ void SystemManager::ShowMainMenu() const {
 		cout << "5. 저장" << endl;
 		cout << "6. 종료" << endl;
 		cout << "-------------------------------------------------" << endl;
-		cout << "행동을 선택하세요 : " << endl;
+		cout << "행동을 선택하세요 : ";
 
 		int iChoice;
 
@@ -56,61 +55,17 @@ void SystemManager::ShowMainMenu() const {
 		}
 
 		switch (iChoice) {
-		case MM_BATTLE:  //함수로 처리
-			ShowBattleMenu();
-			/*while (true) {
-				system("cls");
-				cout << "************************ 사냥터를 선택하세요. ************************" << endl;
-				cout << "1. 뒷산" << endl;
-				cout << "2. 들판" << endl;
-				cout << "3. 깊은 숲" << endl;
-				cout << "4. 돌아가기" << endl;
-				cout << "************************************************" << endl;
-				cout << "선택하세요. : ";
-				
-				cin >> iChoice;
-
-				if (cin.fail()) {
-					cin.clear();
-					cin.ignore(1024, '\n');
-					continue;
-				}
-
-				if (ichoice == 4) break;
-
-				if (ichoice < 1 || ichoice > 4) continue;
-
-				battlemanager.battle(ichoice);
-
-			}*/
+		case MM_BATTLE:  
+			battleManager.ShowBattleMenu();
 			break;
 		case MM_STORE:
+			storeManager.ShowStoreMenu();
 			break;
 		case MM_INN:
-			system("cls");
-			cPlayer.iHp = cPlayer.iMaxHp;
-			cout << "체력을 회복했습니다." << endl;
-			system("PAUSE");
+			Heal();
 			break;
-		case MM_STATS: {
-			system("cls");
-			cPlayer.ShowCharStats();
-			cout << "1. 장비창 보기  2. 돌아가기" << endl;
-
-			int iChoice = 0;
-
-			while (iChoice != 1 && iChoice != 2) {
-				cout << endl << "선택하세요 : ";
-				
-				cin >> iChoice;
-
-				if (cin.fail()) {
-					cin.clear();
-					cin.ignore(1024, '\n');
-					continue;
-				}
-			}
-		}
+		case MM_STATS:
+			ShowMyInfo();
 			break;
 		case MM_SAVE: {
 			cout << "정보를 저장합니다. " << endl;
@@ -128,20 +83,25 @@ void SystemManager::ShowMainMenu() const {
 	}
 }
 
-void SystemManager::ShowBattleMenu() const {
-	int iChoice;
-	while (true) {
-		system("cls");
-		cout << "************************ 사냥터를 선택하세요. ************************" << endl;
-		cout << "1. 뒷산" << endl;
-		cout << "2. 들판" << endl;
-		cout << "3. 깊은 숲" << endl;
-		cout << "4. 오닉시아의 둥지" << endl;
-		cout << "5. 돌아가기" << endl;
-		cout << "************************************************" << endl;
-		cout << "선택하세요. : ";
+void SystemManager::Heal() {
+	system("cls");
+	cPlayer.iHp = cPlayer.iMaxHp;
+	cPlayer.iMp = cPlayer.iMaxMp;
+	cout << "체력을 회복했습니다." << endl;
+	system("PAUSE");
+}
 
-		cin >> iChoice;
+void SystemManager::ShowMyInfo() const {
+	system("cls");
+	cPlayer.ShowCharStats();
+	cout << "1. 내 장비 확인  2. 돌아가기" << endl;
+
+	enum INFO { INFO_NONE, INFO_EQUIPMENT, INFO_RETURN };
+
+	int iChoice;
+
+	while (true) {
+		cout << endl << "선택하세요 : "; cin >> iChoice;
 
 		if (cin.fail()) {
 			cin.clear();
@@ -149,11 +109,13 @@ void SystemManager::ShowBattleMenu() const {
 			continue;
 		}
 
-		if (iChoice == 5) break;
+		if (iChoice == INFO_RETURN) break;
 
-		if (iChoice < 1 || iChoice > 5) continue;
-
-		battleManager.Battle(iChoice);
-
+		if (iChoice == INFO_EQUIPMENT) {
+			cPlayer.ShowCharEquipments();
+			system("PAUSE");
+			break;
+		}
 	}
 }
+

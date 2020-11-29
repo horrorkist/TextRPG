@@ -1,7 +1,9 @@
 ﻿#include "SystemManager.h"
 #include "BattleManager.h"
+#include "StoreManager.h"
 #include "Character.h"
-#include "Monster.h"
+#include "MonsterDB.h"
+#include "ItemDB.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -9,6 +11,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 SystemManager systemManager;
 BattleManager battleManager;
 
@@ -92,9 +95,19 @@ Item BattleBoots;
 vector<vector<Monster>> BattleFields = { {Mouse, Spider, Bet, Snake, Bandit}, {Wolf, Bear, Wildboar}, {Goblin, Orc, Ogre}, {Hatchling, Dragon} };
 
 
+=======
+>>>>>>> Item
 //************************* Player *************************
 Character cPlayer;
 
+//************************* DB *************************
+ItemDB itemDB;
+MonsterDB monsterDB;
+
+//************************* Manager *************************
+SystemManager	 systemManager;
+BattleManager	 battleManager;
+StoreManager	 storeManager;
 int main()
 {
 	inputStream.open("data.txt");

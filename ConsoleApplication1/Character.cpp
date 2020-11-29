@@ -111,3 +111,11 @@ string Character::GetDataString() {
 }
 
 Character NPC;
+void Character::ShowCharEquipments() const {
+	cout << "************* ���� ���� ��� *************" << endl;
+	for (int i = 1; i <= 6; i++) {
+		Equipment[i].ShowItemInfo();
+	}
+	cout << "**************************" << endl;
+	return;
+}
