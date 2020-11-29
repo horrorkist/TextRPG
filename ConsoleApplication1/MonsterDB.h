@@ -39,6 +39,5 @@ public:
 		{Hatchling, Dragon}
 	};
 
-	vector<vector<int>> DropChance2D;
 };
 
