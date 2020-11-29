@@ -1,9 +1,12 @@
 #pragma once
 #include "Item.h"
+#include <hash_map>
 #include <vector>
+
 class ItemDB
 {
 public:
+
 	//************************* Item List *************************
 	//iType;  0 : NONE, 1 : 무기, 2 : 투구, 3 : 갑옷, 4: 방패, 5 : 장갑, 6 : 신발
 	//iRarity;  0 : NONE, 1 : 일반, 2 : 마법, 3 : 희귀, 4 : 레어, 5 : 유니크
