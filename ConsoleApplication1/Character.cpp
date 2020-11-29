@@ -36,6 +36,7 @@ void Character::CreateNewChar() {
 				this->iDef = 0;
 				this->iDodge = 0;
 				cout << "캐릭터 생성이 완료되었습니다." << endl;
+				system("PAUSE");
 				return;
 			}
 				break;
