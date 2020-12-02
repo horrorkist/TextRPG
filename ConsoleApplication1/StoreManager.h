@@ -18,8 +18,8 @@ private:
 	int		iMaxSlots = 3;
 	int		iSlotLimit = 10;
 
-	int		iRefCost = 0;
-	int		iStoreLevelUpCost = 500;
+	int		iRefCost = 200;
+	int		iStoreLevelUpCost = 100;
 	int		iAddSlotCost = 100;
 
 	int		Odds[10][6] = {

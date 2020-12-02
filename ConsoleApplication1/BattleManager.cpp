@@ -81,6 +81,7 @@ void BattleManager::Battle(int field) {
 				while (cPlayer.iRqExp <= cPlayer.iExp) {
 					cPlayer.iExp -= cPlayer.iRqExp;
 					cPlayer.iLevel++;
+					cPlayer.iRqExp *= 1.4;
 					cPlayer.iRqExp *= 1.05;
 					cPlayer.iMaxHp += 50;	cPlayer.iHp = cPlayer.iMaxHp;
 					cPlayer.iMinAtt += 2;	cPlayer.iMaxAtt += 5;
@@ -185,8 +186,8 @@ void BattleManager::Battle(int field) {
 		switch (iChoice) {
 		case ACT_ATTACK: {
 
-			int iDealt = (cPlayer.iMinAtt + (rand() % (cPlayer.iMaxAtt - cPlayer.iMinAtt))) - mEnemy.iDef; if (iDealt < 0) iDealt = 0;
-			int iHurt = (mEnemy.iMinAtt + (rand() % (mEnemy.iMaxAtt - mEnemy.iMinAtt))) - cPlayer.iDef; if (iHurt < 0) iHurt = 0;
+			int iDealt = (cPlayer.iMinAtt + (rand() % (cPlayer.iMaxAtt - cPlayer.iMinAtt)))*100/(100 + mEnemy.iDef); if (iDealt < 0) iDealt = 0;
+			int iHurt = (mEnemy.iMinAtt + (rand() % (mEnemy.iMaxAtt - mEnemy.iMinAtt)))*100/(100 + cPlayer.iDef); if (iHurt < 0) iHurt = 0;
 
 			mEnemy.iHp -= iDealt;
 			dealt = mEnemy.sName + "에게 데미지를 " + to_string(iDealt) + " 가했습니다!\n";

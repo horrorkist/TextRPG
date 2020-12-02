@@ -191,7 +191,7 @@ void StoreManager::ShowStoreMenu()
 						system("PAUSE");
 						break;
 					}
-
+					iStoreLevelUpCost = pow(iStoreLevel, 2) * 100;
 					cout << "상점 레벨을 올릴까요? 비용은 : " << iStoreLevelUpCost << "G 입니다.(y/n)" << endl;
 
 					char cConfirm;

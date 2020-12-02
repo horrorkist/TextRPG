@@ -10,13 +10,13 @@ private:
 public:
 	int						iMonsterRank;
 
-	int						iDropChance = 100;
+	int						iDropChance = 40;
 
 	vector<vector<int>>		vDropChance2D
 	{
 		{0},
 		{0, 50, 50, 0, 0, 0},			//¸ó½ºÅÍ ·©Å© 1
-		{0, 70, 30, 0, 0, 0},			//¸ó½ºÅÍ ·©Å© 2
+		{0, 30, 60, 10, 0, 0},			//¸ó½ºÅÍ ·©Å© 2
 		{0, 0, 50, 30, 20, 0},			//¸ó½ºÅÍ ·©Å© 3
 		{0, 0, 0, 20, 60, 20},			//¸ó½ºÅÍ ·©Å© 4
 		{0, 0, 0, 0, 0, 100}			//¸ó½ºÅÍ ·©Å© 5
